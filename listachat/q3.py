@@ -5,4 +5,11 @@ def subtrai_pares(n):
         return subtrai_pares(n//10) - n%10
     else:
         return subtrai_pares(n//10) # para ignorar o 5 que é impar 
-print(subtrai_pares(8564))
+print(subtrai_pares(5264))
+
+# def subtrair(n):
+#     if n < 10:
+#         return n
+#     return n % 10 - subtrair(n//10)
+
+# print(subtrair(1058))

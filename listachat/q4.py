@@ -10,6 +10,5 @@ def remover_vogais(texto):
         # Se não for vogal ou espaço, mantém o caractere e chama recursivamente
         return texto[0] + remover_vogais(texto[1:])
 
-
 # Testando a função
 print(remover_vogais("Python e legal"))  # Saída: "Pthnlg"  

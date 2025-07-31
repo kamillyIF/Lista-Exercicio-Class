@@ -12,11 +12,6 @@
 
 # QUESTÃO 2 DA P4 ANTECIPADA
 
-# def inverter_palavras(frase):
-#     if frase == "":
-#         return ""
-#     return inverter_palavras(frase[::-1])
-
 # def inverter_palavra(frase):
 #     saida = " "
 #     for palavra in 
