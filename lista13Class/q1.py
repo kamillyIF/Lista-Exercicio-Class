@@ -3,33 +3,43 @@
 # na ordem, e depois vá indicando, uma a uma,  na ordem inversa da adição, as 
 # peças para remontar o carro. Operações adicionar peça e remover peça.
 
-pilha = []  # lista vazia representando a pilha
+def menu():
+    print("1 - adicionar peça")
+    print("2 - remover peça")
+    print("3 - visualizar lista de peça")
+    print("4 - sair")
+    return input("opção: ")
 
-# função para adicionar peça
-def adicionar_peca(nome):
-    pilha.append(nome)
-    print(f"Peça '{nome}' adicionada.")
+def exibeFila(nome, fila):
+    print(nome)
+    if len(fila) == 0:
+        print("fila vazia")
+    else:
+        for i in range(len(fila)):
+            print(f"{i+1}. {fila[i]}")
 
-# função para remover peça (para remontar)
-def remover_peca():
-    if len(pilha) == 0:
-        print("Não há peças para remover.")
-        return None
-    p = pilha.pop()
-    print(f"Peça '{p}' removida para remontar.")
-    return p
+def adicionar_peca(fila):
+    nome = input("digite o nome da peça: ")
+    fila.append(nome)
 
-# Simulação
+def remover_peca(fila):
+    if len(fila) == 0:  
+        print("não ha peça na fila")
+    else:
+        removido = fila.pop()
+        print(f"a peça '{removido}' foi removida.")
 
-# Adicionando peças (removidas do carro)
-adicionar_peca("Parafuso")
-adicionar_peca("Filtro de óleo")
-adicionar_peca("Correia")
+fila = []
+opc = menu()
 
-print("\nHora de remontar o carro...")
+while opc != "4":
+    if opc == "1":
+        adicionar_peca(fila)
+    elif opc == "2":
+        remover_peca(fila)
+    elif opc == "3":
+        exibeFila("lista das peças",fila)
+    else:
+        print("opção invalida")
 
-# Removendo peças na ordem inversa para remontar
-remover_peca()
-remover_peca()
-remover_peca()
-remover_peca()  # testando remover peça quando pilha está vazia
+    opc = menu()

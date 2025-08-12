@@ -2,27 +2,44 @@
 # Desenvolva um programa que permita adicionar pacientes na fila e indique a vez do paciente a ser 
 # atendido. Minimamente, disponibilize as funcionalidades de adicionar paciente e remover paciente.
 
-fila = []
+def menu():
+    print("1 - adicionar paciente regular")
+    print("2 - remover paciente")
+    print("3 - visualizar lista de pacientes")
+    print("4 - sair")
+    return input("opção: ")
 
-def adicionar_paciente(nome):
+def exibeFila(nome, fila):
+    print(nome)
+    if len(fila) == 0:
+        print("fila vazia")
+    else:
+        for i in range(len(fila)):
+            print(f"{i+1}. {fila[i]}")
+
+def adicionar_paciente(fila):
+    nome = input("Digite o nome do paciente: ")
     fila.append(nome)
-    print(f"Paciente '{nome}' adicionado na fila.")
+    print(f"Paciente '{nome}' adicionado.")
 
-def atender_paciente():
+def remover_paciente(fila):
     if len(fila) == 0:
         print("Não há pacientes na fila.")
-        return None
-    paciente = fila.pop(0)
-    print(f"Paciente '{paciente}' está sendo atendido.")
-    return paciente
+    else:
+        removido = fila.pop(0)
+        print(f"Paciente '{removido}' foi removido da fila.")
 
-# Simulação
+fila = []
+opc = menu()
 
-adicionar_paciente("João")
-adicionar_paciente("Maria")
-adicionar_paciente("Carlos")
-
-atender_paciente()
-atender_paciente()
-atender_paciente()
-atender_paciente()  # fila vazia
+while opc != "4":
+    if opc == "1":
+        adicionar_paciente(fila)
+    elif opc == "2":
+        remover_paciente(fila)
+    elif opc == "3":
+        exibeFila("Fila de pacientes:", fila)
+    else:
+        print("opção inválida")
+    
+    opc = menu()
