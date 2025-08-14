@@ -4,17 +4,29 @@
 # ao longo da entrada. Crie m´etodos, a sua escolha, para usar durante o processamento dos
 # dados.
 
-alunos = 40
+# alunos = 40
+# media_anuais = []
+
+# for i in range(alunos):
+#     notas = []
+#     for j in range(4):
+#         nota = float(input())
+#         notas.append(nota) # adicionar notas ao final da fila
+#     media_anual = sum(notas) / 4
+#     media_anuais.append(media_anual)
+#     print(f"{media_anual:.2f}")
+
+# media_turma = sum(media_anuais) / alunos
+# print(f"{media_turma:.2f}")
+
+
+alunos = int(input())
 media_anuais = []
 
 for i in range(alunos):
-    notas = []
-    for j in range(4):
-        nota = float(input())
-        notas.append(nota) # adicionar notas ao final da fila
-    media_anual = sum(notas) / 4
-    media_anuais.append(media_anual)
-    print(f"{media_anual:.2f}")
-
+    n1,n2,n3,n4 = map(float,input().split())
+    media_aluno = (n1+n2+n3+n4) / 4
+    media_anuais.append(media_aluno)
+    print(f"media do aluno {i+1}: {media_aluno:.2f}")
 media_turma = sum(media_anuais) / alunos
-print(f"{media_turma:.2f}")
+print(f"media da turma: {media_turma:.2f}")
